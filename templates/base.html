@@ -9,6 +9,9 @@
     <script src="https://cdn.tailwindcss.com"></script>
     {% block styles %}
     {% endblock %}
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 
 </head>
@@ -17,50 +20,100 @@
     {% block header %}
     {% endblock %}
     <!-- Navbar -->
-    <nav class="bg-purple-600 text-white py-4 shadow-lg">
+    <nav class="bg-white text-black py-4 shadow-md">
         <div class="container mx-auto flex justify-between items-center px-4">
             <!-- Logo -->
-            <a href="{% url 'home' %}" class="flex items-center space-x-2">
-                <img src="{% static 'image/logo.jpg' %}" alt="Logo" class="w-10 h-10 rounded-full">
-                <span class="text-l font-bold">DA Technology IT Solution</span>
+            <a href="{% url 'home' %}" class="flex items-center space-x-4">
+                <img src="{% static 'image/logo.jpg' %}" alt="Logo" class="w-16 h-16 rounded-full shadow-md">
             </a>
-
+    
             <!-- Navbar Links (for larger screens) -->
-            <ul class="hidden md:flex space-x-6">
-                <li><a href="{% url 'home' %}"
-                        class="nav-link hover:scale-110 hover:shadow-lg transform transition-all duration-300">Home</a>
+            <ul class="hidden md:flex space-x-8">
+                <li>
+                    <a href="{% url 'home' %}" class="nav-link relative group">
+                        <i class="fas fa-home text-blue-500"></i> Home
+                        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
+                    </a>
                 </li>
-                <li><a href="{% url 'about' %}"
-                        class="nav-link hover:scale-110 hover:shadow-lg transform transition-all duration-300">About
-                        Us</a></li>
-                <li><a href="{% url 'services' %}"
-                        class="nav-link hover:scale-110 hover:shadow-lg transform transition-all duration-300">Services</a>
+                <li>
+                    <a href="{% url 'about' %}" class="nav-link relative group">
+                        <i class="fas fa-users text-blue-500"></i> About Us
+                        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
+                    </a>
                 </li>
-                <li><a href="{% url 'contact' %}"
-                        class="nav-link hover:scale-110 hover:shadow-lg transform transition-all duration-300">Contact Us</a>
+                <li>
+                    <a href="{% url 'services' %}" class="nav-link relative group">
+                        <i class="fas fa-hands-helping text-blue-500"></i> Services
+                        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
+                    </a>
+                </li>
+                <li>
+                    <a href="{% url 'portfolio' %}" class="nav-link relative group">
+                        <i class="fas fa-briefcase text-blue-500"></i> Portfolio
+                        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
+                    </a>
+                </li>
+                <li>
+                    <a href="{% url 'testimonial' %}" class="nav-link relative group">
+                        <i class="fas fa-comments text-blue-500"></i> Testimonials
+                        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
+                    </a>
+                </li>
+                <li>
+                    <a href="{% url 'contact' %}" class="nav-link relative group">
+                        <i class="fas fa-envelope text-blue-500"></i> Contact Us
+                        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
+                    </a>
                 </li>
             </ul>
-
+    
             <!-- Toggle Button for Small Devices -->
-            <button id="menu-toggle"
-                class="md:hidden p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500">
-                <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor"
-                    viewBox="0 0 24 24" stroke-width="2">
+            <button id="menu-toggle" class="md:hidden p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"></path>
                 </svg>
             </button>
         </div>
-
+    
         <!-- Mobile Menu (Hidden by default) -->
-        <div id="mobile-menu" class="md:hidden hidden bg-purple-600 text-white p-4">
+        <div id="mobile-menu" class="md:hidden hidden bg-white text-black p-4 shadow-md">
             <ul class="space-y-4">
-                <li><a href="{% url 'home' %}" class="block">Home</a></li>
-                <li><a href="{% url 'about' %}" class="block">About Us</a></li>
-                <li><a href="{% url 'services' %}" class="block">Services</a></li>
-                <li><a href="{% url 'contact' %}" class="block">Contact Us</a></li>
+                <li>
+                    <a href="{% url 'home' %}" class="block hover:text-blue-600 hover:bg-gray-100 p-2 rounded transition duration-300">
+                        <i class="fas fa-home text-blue-500"></i> Home
+                    </a>
+                </li>
+                <li>
+                    <a href="{% url 'about' %}" class="block hover:text-blue-600 hover:bg-gray-100 p-2 rounded transition duration-300">
+                        <i class="fas fa-users text-blue-500"></i> About Us
+                    </a>
+                </li>
+                <li>
+                    <a href="{% url 'services' %}" class="block hover:text-blue-600 hover:bg-gray-100 p-2 rounded transition duration-300">
+                        <i class="fas fa-concierge-bell text-blue-500"></i> Services
+                    </a>
+                </li>
+                <li>
+                    <a href="{% url 'portfolio' %}" class="block hover:text-blue-600 hover:bg-gray-100 p-2 rounded transition duration-300">
+                        <i class="fas fa-briefcase text-blue-500"></i> Portfolio
+                    </a>
+                </li>
+                <li>
+                    <a href="{% url 'testimonial' %}" class="block hover:text-blue-600 hover:bg-gray-100 p-2 rounded transition duration-300">
+                        <i class="fas fa-comments text-blue-500"></i> Testimonials
+                    </a>
+                </li>
+                <li>
+                    <a href="{% url 'contact' %}" class="block hover:text-blue-600 hover:bg-gray-100 p-2 rounded transition duration-300">
+                        <i class="fas fa-envelope text-blue-500"></i> Contact Us
+                    </a>
+                </li>
             </ul>
         </div>
     </nav>
+    
+    
+    
 
     <!-- JavaScript for Menu Toggle -->
     <script>
@@ -150,81 +203,81 @@
 
     <footer class="relative bg-gray-900 text-white py-16 px-8">
         <!-- Decorative Overlay -->
-        <div class="absolute inset-0 bg-gradient-to-br from-purple-600/20 to-transparent rounded-lg"></div>
-
+        <div class="absolute inset-0 bg-gradient-to-br from-blue-600/20 to-transparent rounded-lg"></div>
+    
         <div class="relative max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-10">
-
+    
             <!-- Company Info -->
             <div class="space-y-4">
-                <h3 class="text-xl font-bold text-purple-400">About Us</h3>
+                <h3 class="text-xl font-bold text-blue-400">About Us</h3>
                 <p class="text-gray-300 text-sm leading-relaxed">
                     We craft innovative, scalable, and affordable digital solutions that empower businesses.
                 </p>
                 <div class="flex space-x-4">
-                    <a href="#" class="text-purple-500 hover:text-purple-400 transition">
+                    <a href="#" class="text-blue-500 hover:text-blue-400 transition">
                         <i class="fab fa-facebook text-2xl"></i>
                     </a>
-                    <a href="https://www.instagram.com/datechnologyitsolution/" class="text-purple-500 hover:text-purple-400 transition">
+                    <a href="https://www.instagram.com/datechnologyitsolution/" class="text-blue-500 hover:text-blue-400 transition">
                         <i class="fab fa-instagram text-2xl"></i>
                     </a>
-                    <a href="#" class="text-purple-500 hover:text-purple-400 transition">
+                    <a href="#" class="text-blue-500 hover:text-blue-400 transition">
                         <i class="fab fa-linkedin text-2xl"></i>
                     </a>
                 </div>
             </div>
-
+    
             <!-- Quick Links -->
             <div class="space-y-4">
-                <h3 class="text-xl font-bold text-purple-400">Quick Links</h3>
+                <h3 class="text-xl font-bold text-blue-400">Quick Links</h3>
                 <ul class="space-y-2">
-                    <li><a href="{% url 'home' %}" class="text-gray-300 hover:text-purple-400 transition">Home</a></li>
-                    <li><a href="{% url 'about' %}" class="text-gray-300 hover:text-purple-400 transition">About Us</a></li>
-                    <li><a href="{% url 'services' %}" class="text-gray-300 hover:text-purple-400 transition">Services</a></li>
-                    <li><a href="{% url 'contact' %}" class="text-gray-300 hover:text-purple-400 transition">Contact Us</a></li>
+                    <li><a href="{% url 'home' %}" class="text-gray-300 hover:text-blue-400 transition">Home</a></li>
+                    <li><a href="{% url 'about' %}" class="text-gray-300 hover:text-blue-400 transition">About Us</a></li>
+                    <li><a href="{% url 'services' %}" class="text-gray-300 hover:text-blue-400 transition">Services</a></li>
+                    <li><a href="{% url 'contact' %}" class="text-gray-300 hover:text-blue-400 transition">Contact Us</a></li>
                 </ul>
             </div>
-
+    
             <!-- Services -->
             <div class="space-y-4">
-                <h3 class="text-xl font-bold text-purple-400">Services</h3>
+                <h3 class="text-xl font-bold text-blue-400">Services</h3>
                 <ul class="space-y-2">
-                    <li><a href="{% url 'services' %}" class="text-gray-300 hover:text-purple-400 transition">Web Development</a></li>
-                    <li><a href="{% url 'services' %}" class="text-gray-300 hover:text-purple-400 transition">SEO Optimization</a></li>
-                    <li><a href="{% url 'services' %}" class="text-gray-300 hover:text-purple-400 transition">Cloud Solutions</a></li>
-                    <li><a href="{% url 'services' %}" class="text-gray-300 hover:text-purple-400 transition">App Development</a></li>
-                    <li><a href="{% url 'services' %}" class="text-gray-300 hover:text-purple-400 transition">Calling Support</a></li>
-                    <li><a href="{% url 'services' %}" class="text-gray-300 hover:text-purple-400 transition">Backup</a></li>
-                    <li><a href="{% url 'services' %}" class="text-gray-300 hover:text-purple-400 transition">GST</a></li>
+                    <li><a href="{% url 'services' %}" class="text-gray-300 hover:text-blue-400 transition">Web Development</a></li>
+                    <li><a href="{% url 'services' %}" class="text-gray-300 hover:text-blue-400 transition">SEO Optimization</a></li>
+                    <li><a href="{% url 'services' %}" class="text-gray-300 hover:text-blue-400 transition">Cloud Solutions</a></li>
+                    <li><a href="{% url 'services' %}" class="text-gray-300 hover:text-blue-400 transition">App Development</a></li>
+                    <li><a href="{% url 'services' %}" class="text-gray-300 hover:text-blue-400 transition">Calling Support</a></li>
+                    <li><a href="{% url 'services' %}" class="text-gray-300 hover:text-blue-400 transition">Backup</a></li>
+                    <li><a href="{% url 'services' %}" class="text-gray-300 hover:text-blue-400 transition">GST</a></li>
                 </ul>
             </div>
-
+    
             <!-- Contact Info -->
             <div class="space-y-4">
-                <h3 class="text-xl font-bold text-purple-500">Contact Us</h3>
-
+                <h3 class="text-xl font-bold text-blue-400">Contact Us</h3>
+    
                 <!-- Address with link to Google Maps -->
                 <p class="text-gray-300 text-sm">
                     📍 <a href="https://maps.app.goo.gl/fnz8rgmkyndgrXsQ8" target="_blank"
-                        class="text-gray-300 hover:text-purple-400 transition">Kitchen Road, Art of Living,<br>udaypura, Bengaluru, India</a>
+                        class="text-gray-300 hover:text-blue-400 transition">Kitchen Road, Art of Living,<br>udaypura, Bengaluru, India</a>
                 </p>
-
+    
                 <!-- Phone number with link to dial -->
                 <p class="text-gray-300 text-sm">
-                    📞 <a href="tel:+919739781472" class="text-gray-300 hover:text-purple-400 transition">+91 9739781472</a>
+                    📞 <a href="tel:+919739781472" class="text-gray-300 hover:text-blue-400 transition">+91 9739781472</a>
                 </p>
                 <p class="text-gray-300 text-sm">
-                    📞 <a href="tel:+91 7204385837" class="text-gray-300 hover:text-purple-400 transition">+91 7204385837</a>
+                    📞 <a href="tel:+91 7204385837" class="text-gray-300 hover:text-blue-400 transition">+91 7204385837</a>
                 </p>
-
+    
                 <!-- Email with link to send email -->
                 <p class="text-gray-300 text-sm">
                     📧 <a href="mailto:datechnologyitsoluation@gmail.com"
-                        class="text-gray-300 hover:text-purple-400 transition">datechnologyitsoluation@gmail.com</a>
+                        class="text-gray-300 hover:text-blue-400 transition">datechnologyitsoluation@gmail.com</a>
                 </p>
             </div>
-
+    
         </div>
-
+    
         <!-- Map Section -->
         <div class="relative mt-12 flex justify-center">
             <div class="relative w-full max-w-4xl h-64 shadow-lg rounded-lg overflow-hidden">
@@ -232,15 +285,15 @@
                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3890.0924708628467!2d77.51308939527541!3d12.820751426125357!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae3f4b4d97b2e1%3A0xe6d52b92e52e6a77!2sBengaluru%2C%20Karnataka!5e0!3m2!1sen!2sin!4v1690013343434!5m2!1sen!2sin"
                     allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
                 </iframe>
-
             </div>
         </div>
-
+    
         <!-- Footer Bottom -->
         <div class="mt-10 text-center text-gray-400 text-sm border-t border-gray-700 pt-6">
             <p>2025 DA Technology IT Solution. All rights reserved.</p>
         </div>
     </footer>
+    
 
 </body>
 

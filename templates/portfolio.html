@@ -1,0 +1,112 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+DA Technology IT Solution - About
+{% endblock %}
+{% block styles %}
+{% endblock %}
+
+
+{% block content %}
+<header class="bg-blue-400 p-6 text-center shadow-lg">
+    <h1 class="text-4xl font-bold">Our Portfolio<span class="block w-16 h-1 bg-white mx-auto mt-2 rounded-full"></span></h1>
+    <p class="text-lg mt-2">Showcasing Our Recent Projects</p>
+</header>
+
+<!-- Projects Section -->
+<section class="container mx-auto px-4 py-10">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Project Card 1 -->
+        <div class="bg-white rounded-lg shadow-lg overflow-hidden transform transition hover:scale-105 fade-in">
+            <img src="{% static 'image/proj2.png' %}" alt="Project Thumbnail" class="w-full h-48 object-cover">
+            <div class="p-4">
+                <h2 class="text-xl font-bold text-blue-700">KM Healing Foundation</h2>
+                <p class="text-blue-700 mt-2">An online platform which caters to booking and provides an efficient
+                    solution to manage events and healing services seamlessly.</p>
+                <div class="block mt-4 text-center bg-blue-700 text-white py-2 px-4 rounded hover:bg-blue-700">Demo not available</div>
+            </div>
+        </div>
+
+        <!-- Project Card 2 -->
+        <div class="bg-white rounded-lg shadow-lg overflow-hidden transform transition hover:scale-105 fade-in">
+            <img src="{% static 'image/proj1.png' %}" alt="Project Thumbnail" class="w-full h-48 object-cover">
+            <div class="p-4">
+                <h2 class="text-xl font-bold text-blue-700">Portfolio and Profile Management</h2>
+                <p class="text-blue-700 mt-2">An effective platform that allows individuals to showcase and promote
+                    themselves in a personalized and impactful way.</p>
+                <a href="https://rabadikumari.netlify.app/"
+                    class="block mt-4 text-center bg-blue-700 text-white py-2 px-4 rounded hover:bg-blue-700">View
+                    Demo</a>
+            </div>
+        </div>
+
+        <!-- Project Card 3 -->
+        <div class="bg-white rounded-lg shadow-lg overflow-hidden transform transition hover:scale-105 fade-in">
+            <img src="{% static 'image/proj3.webp' %}" alt="Project Thumbnail" class="w-full h-48 object-cover">
+            <div class="p-4">
+                <h2 class="text-xl font-bold text-blue-700">CRM-Based Calling Support</h2>
+                <p class="text-blue-700 mt-2">A robust CRM platform providing businesses with calling support to expand
+                    their reach and enhance customer engagement.</p>
+                <div
+                    class="block mt-4 text-center bg-blue-700 text-white py-2 px-4 rounded hover:bg-blue-700">
+                    Demo not available</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section class="bg-blue-400 py-10 mt-10">
+    <div class="container mx-auto text-center">
+        <h2 class="text-3xl font-bold">More Exciting Projects Coming Soon!</h2>
+        <p class="mt-4 text-white">We are constantly innovating and working on amazing new ideas. Stay tuned for
+            updates!</p>
+        <div class="mt-6">
+            <div class="inline-block animate-bounce bg-white text-blue-900 font-bold py-3 px-6 rounded-lg shadow-lg">
+                Stay Connected!
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="contact-us"
+    class="bg-gradient-to-r from-blue-50 via-blue-100 to-blue-200 py-16 px-6 text-gray-800 text-center relative overflow-hidden">
+    <div class="absolute top-0 left-0 w-full h-80 bg-gradient-to-r from-blue-100 to-transparent rounded-b-full">
+    </div>
+
+    <div class="max-w-7xl mx-auto relative z-10">
+        <h2 class="text-3xl sm:text-4xl font-semibold text-blue-800 mb-6">
+            Got a Question or Need an Appointment?
+            <span class="block w-16 h-1 bg-blue-500 mx-auto mt-2 rounded-full"></span>
+        </h2>
+        <p class="text-lg sm:text-xl text-gray-600 mb-8">
+            Whether you're looking for more information, have a query, or need an appointment, we’re here to help.
+            Feel free to reach out to us for anything!
+        </p>
+
+        <!-- Decorative Wave Shape Below the Button -->
+        <div
+            class="absolute bottom-0 left-0 w-full h-24 bg-gradient-to-r from-blue-200 to-transparent rounded-t-full z-0">
+        </div>
+        <!-- Button with Decoration -->
+        <div class="flex justify-center">
+            <a href="{% url 'contact' %}"
+                class="bg-blue-500 hover:bg-blue-600 text-white font-semibold text-lg py-4 px-10 rounded-xl shadow-lg transform hover:scale-110 transition duration-300 ease-in-out">
+                Contact Us Now
+            </a>
+        </div>
+    </div>
+</section>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<!-- jQuery Animations -->
+<script>
+    $(document).ready(function () {
+        $('.fade-in').each(function (index) {
+            $(this).delay(index * 300).animate({ opacity: 1 }, 800);
+        });
+    });
+</script>
+
+{% endblock %}

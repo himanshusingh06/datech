@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+DA Technology IT Solution - About
+{% endblock %}
+{% block styles %}
+<style>
+    .error-heading {
+        font-size: 8rem;
+        line-height: 1;
+    }
+    .fade-in {
+        opacity: 0;
+    }
+    .shake-animation {
+        animation: shake 1.5s ease-in-out infinite;
+    }
+    @keyframes shake {
+        0%, 100% {
+            transform: translateX(0);
+        }
+        25% {
+            transform: translateX(-10px);
+        }
+        50% {
+            transform: translateX(10px);
+        }
+        75% {
+            transform: translateX(-10px);
+        }
+    }
+</style>
+{% endblock %}
+
+
+{% block content %}
+
+<div class="flex items-center justify-center h-screen"style="background-color: #1e40af;color: white;font-family: 'Arial', sans-serif;">
+    <div class="text-center">
+        <h1 class="error-heading font-bold fade-in">404</h1>
+        <p class="text-xl fade-in mt-4">Oops! The page you're looking for doesn't exist.</p>
+        <p class="mt-2 fade-in">It seems you've hit a dead-end. Let’s get you back on track.</p>
+        <div class="mt-6 fade-in">
+            <a href="/" class="bg-white text-blue-900 font-bold py-3 px-6 rounded-lg shadow-lg hover:bg-blue-400 transition">Go to Homepage</a>
+        </div>
+        <div class="mt-8">
+            <img src="https://cdn-icons-png.flaticon.com/512/2748/2748558.png" alt="Error Image" class="w-40 mx-auto shake-animation">
+        </div>
+    </div>
+
+    <!-- jQuery Animations -->
+    <script>
+        $(document).ready(function () {
+            // Fade-in animations for elements
+            $('.fade-in').each(function (index) {
+                $(this).delay(index * 300).animate({ opacity: 1 }, 800);
+            });
+
+            // Shake animation for the image
+            $('.shake-animation').hover(function () {
+                $(this).addClass('shake-animation');
+            });
+        });
+    </script>
+</div>
+{% endblock %}

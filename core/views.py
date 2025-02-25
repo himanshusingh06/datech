@@ -11,9 +11,13 @@ def home(request):
 
 def about(request):
     return render(request,'about.html')
+def portfolio(request):
+    return render(request,'portfolio.html')
 
 def services(request):
     return render(request, 'services.html')
+def testimonial(request):
+    return render(request, 'testimonial.html')
 # def send_mail_to_admin(user_name, user_email, mobile_number,subject,user_message):
     
 #     message_body = f'Form filled by {user_name}--- with the email {user_email}.\n\nMobile number -- {mobile_number}\n\nThe Message provided is :\n {user_message}'
@@ -26,22 +30,20 @@ def services(request):
 #     message.send()
 
 def contact(request):
-    if request.method == 'POST':
-        user_name = request.POST.get('name')
-        user_email = request.POST.get('email')
-        mobile_number = request.POST.get('phone')
-        usubject = request.POST.get('subject')
-        user_message = request.POST.get('message')
+    if request.method == "POST":
+        name = request.POST.get('name')
+        phone = request.POST.get('phone')
+        email = request.POST.get('email')
+        subject = request.POST.get('subject')
+        message = request.POST.get('message')
 
 
-        subject = f'New form filled by {user_name}--- with subject {usubject}'
-        message = f'Form filled by {user_name}--- with the email {user_email}.\n\nMobile number -- {mobile_number}\n\nThe Message provided is :\n {user_message}'
-        recipient_list = ["himanshukrs5760@gmail.com"]
-
-        send_mail(subject, message, EMAIL_HOST_USER, recipient_list, fail_silently=True)
-        
-        
-        # send_mail_to_admin(user_name, user_email, mobile_number, subject, user_message)
-        return redirect('home')
-    else:
-        return render(request, 'contact.html')
+        message_body = f'Contact form filled by {name}--- with the email {email}.\n\nMobile number -- {phone}\n\nThe Message provided is :\n {message}\n\n '
+        message2 = EmailMessage(
+        subject=subject,
+        body=message_body,
+        from_email=EMAIL_HOST_USER,
+        to=['himanshuks062@gmail.com','arunk.mmc@gmail.com'])
+        message2.send()
+        return redirect('home')  # Redirect to the contact page or any other page
+    return render(request, 'contact.html')  # Render the contact form template

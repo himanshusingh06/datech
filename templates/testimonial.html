@@ -1,0 +1,118 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+DA Technology IT Solution - Home
+{% endblock %}
+{% block styles %}
+{% endblock %}
+
+
+{% block content %}
+    <!-- Header Section -->
+    <header class="bg-blue-400 p-6 text-center shadow-lg">
+        <h1 class="text-4xl font-bold text-white">What People Say About Us<span class="block w-16 h-1 bg-white mx-auto mt-2 rounded-full"></span></h1>
+        <p class="text-lg mt-2 text-blue-100">Join the thousands who love what we do!</p>
+    </header>
+
+    <!-- Reviews Section -->
+    <section class="container mx-auto px-4 py-10">
+        <h2 class="text-3xl font-bold text-center mb-8">Here’s What They’re Saying</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Review Card 1 -->
+            <div class="bg-blue-400 text-white rounded-lg shadow-lg p-6 transform transition hover:scale-105 fade-in">
+                <div class="flex items-center mb-4">
+                    <img src="https://via.placeholder.com/50" alt="Profile" class="w-12 h-12 rounded-full mr-4">
+                    <div>
+                        <h3 class="font-semibold">Arjun Mehta</h3>
+                        <div class="text-yellow-300">★★★★★</div>
+                    </div>
+                </div>
+                <p class="text-white">"This platform transformed the way I manage my projects. Highly recommend!"</p>
+            </div>
+
+            <!-- Review Card 2 -->
+            <div class="bg-blue-400 text-white rounded-lg shadow-lg p-6 transform transition hover:scale-105 fade-in">
+                <div class="flex items-center mb-4">
+                    <img src="https://via.placeholder.com/50" alt="Profile" class="w-12 h-12 rounded-full mr-4">
+                    <div>
+                        <h3 class="font-semibold">Vicky Kumar</h3>
+                        <div class="text-yellow-300">★★★★★</div>
+                    </div>
+                </div>
+                <p class="text-white">"Amazing support and incredible features! I’m a fan for life."</p>
+            </div>
+
+            <!-- Review Card 3 -->
+            <div class="bg-blue-400 text-white rounded-lg shadow-lg p-6 transform transition hover:scale-105 fade-in">
+                <div class="flex items-center mb-4">
+                    <img src="https://via.placeholder.com/50" alt="Profile" class="w-12 h-12 rounded-full mr-4">
+                    <div>
+                        <h3 class="font-semibold">Ranjan Gupta</h3>
+                        <div class="text-yellow-300">★★★★★</div>
+                    </div>
+                </div>
+                <p class="text-white">"The user experience is unmatched. It’s so easy to use!"</p>
+            </div>
+
+            <!-- Review Card 4 -->
+            <div class="bg-blue-400 text-white rounded-lg shadow-lg p-6 transform transition hover:scale-105 fade-in">
+                <div class="flex items-center mb-4">
+                    <img src="https://via.placeholder.com/50" alt="Profile" class="w-12 h-12 rounded-full mr-4">
+                    <div>
+                        <h3 class="font-semibold">Vijay Singh</h3>
+                        <div class="text-yellow-300">★★★★★</div>
+                    </div>
+                </div>
+                <p class="text-white">"I never thought managing my business could be this simple. Thank you!"</p>
+            </div>
+
+            <!-- Review Card 5 -->
+            <div class="bg-blue-400 text-white rounded-lg shadow-lg p-6 transform transition hover:scale-105 fade-in">
+                <div class="flex items-center mb-4">
+                    <img src="https://via.placeholder.com/50" alt="Profile" class="w-12 h-12 rounded-full mr-4">
+                    <div>
+                        <h3 class="font-semibold">Aditi Verma</h3>
+                        <div class="text-yellow-300">★★★★★</div>
+                    </div>
+                </div>
+                <p class="text-white">"A reliable platform that delivers on its promises. Highly impressed!"</p>
+            </div>
+
+            <!-- Review Card 6 -->
+            <div class="bg-blue-400 text-white rounded-lg shadow-lg p-6 transform transition hover:scale-105 fade-in">
+                <div class="flex items-center mb-4">
+                    <img src="https://via.placeholder.com/50" alt="Profile" class="w-12 h-12 rounded-full mr-4">
+                    <div>
+                        <h3 class="font-semibold">Sneha Patil</h3>
+                        <div class="text-yellow-300">★★★★★</div>
+                    </div>
+                </div>
+                <p class="text-white">"Outstanding service and attention to detail. I recommend it to everyone!"</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call-to-Action Section -->
+    <section class="bg-blue-400 py-10 mt-10">
+        <div class="container mx-auto text-center">
+            <h2 class="text-3xl font-bold text-white">Want to Share Your Experience?</h2>
+            <p class="mt-4 text-blue-100">We’d love to hear your feedback! Connect with us and be featured here.</p>
+            <div class="mt-6">
+                <a href="{% url 'contact' %}" class="inline-block bg-white text-blue-400 font-bold py-3 px-6 rounded-lg shadow-lg hover:bg-blue-100 transition">Share Your Thoughts</a>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- jQuery Animations -->
+    <script>
+        $(document).ready(function () {
+            $('.fade-in').each(function (index) {
+                $(this).delay(index * 300).animate({ opacity: 1 }, 800);
+            });
+        });
+    </script>
+
+
+
+{% endblock %}
